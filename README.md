@@ -16,7 +16,7 @@ Angular 16.x navigation skeleton project with styling which get you started fast
   - docker image
 
 ## regenerate
-  - `ng new angular-skeleton-app --routing --style=scss`
+  - `ng new angular-skeleton-app --routing --style=scss --ssr --standalone=false`
   - `ng lint` (to setup)
   - `ng add @angular/pwa`
   - `ng add @nguniversal/express-engine` - https://angular.io/guide/universal

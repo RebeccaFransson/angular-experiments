@@ -9,6 +9,7 @@ import { signal } from "@angular/core";
  *  + Using the same functions
  *  + Easy to read HTML
  *  + Easy to add new person
+ *  + Hard to accedently change a persons layout when you wnated to change another persons layout
  */
 export class SkeletonBaseComponent {
 

@@ -1,23 +1,21 @@
 <div class="nav">
-		<a href="/theodora">Theodora</a>
-		<a href="/olga">Olga</a>
-		<a href="/billie">Billie</a>
+		<a href="/solution1/theodora">Theodora</a>
+		<a href="/solution1/olga">Olga</a>
+		<a href="/solution1/billie">Billie</a>
 		<a (click)="toggleWarning()" [class.warning]="showWarning()">Warning</a>
 </div>
 <div class="frame">
 	<div>
 		<div class="header">Billie</div>
 		<div class="list">
-
 			<div class="item">Stuff together</div>
 
 			<div class="item">Olga and Billie together</div>
 			
 			<div class="item">Billies stuff</div>
-			<div class="item">Billies stuff</div>
-      @if(showWarning()){
-			  <div class="warning">Warning! for Billie</div>
-      }
+			@if(showWarning()){
+				<div class="warning">Warning! for Billie</div>
+			}
 		</div>
 	</div>
 	<div class="other">

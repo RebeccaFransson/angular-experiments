@@ -1,0 +1,19 @@
+<div class="nav">
+		<a href="/solution2/theodora">Theodora</a>
+		<a href="/solution2/olga">Olga</a>
+		<a href="/solution2/billie">Billie</a>
+		<a (click)="toggleWarning()" [class.warning]="showWarning()">Warning</a>
+</div>
+<div class="frame">
+	<div>
+		<div class="header">
+			<ng-content select="skeleton-header"></ng-content>
+		</div>
+		<div class="list">
+			<ng-content select="skeleton-list"></ng-content>
+		</div>
+	</div>
+	<div class="other">
+		<ng-content select="skeleton-other"></ng-content>
+	</div>
+</div>

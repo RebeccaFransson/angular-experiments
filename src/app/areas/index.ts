@@ -6,10 +6,12 @@ import { ErrorComponent } from "./error/error.component";
 import { NotFoundComponent } from "./not-found/not-found.component";
 import { ProjectsComponent } from "./projects/projects.component";
 import { ProjectComponent } from "./projects/project.component";
+import { SkeletonComponent } from "./skeleton/skeleton.component";
 
 export const AREAS_ROUTES: Routes = [
 	{ path: "", component: HomeComponent, pathMatch: "full" },
 	{ path: "projects", component: ProjectsComponent },
+	{ path: "skeleton", component: SkeletonComponent },
 	{ path: "error", component: ErrorComponent },
 	{ path: "**", component: NotFoundComponent },
 ];

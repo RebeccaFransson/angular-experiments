@@ -11,6 +11,7 @@ import { OlgaComponent as Solution2Olga} from "./solution2/olga/olga.component";
 import { TheodoraComponent as Solution2Theodora } from "./solution2/theodora/theodora.component";
 import { BillieComponent as Solution2Billie} from "./solution2/billie/billie.component";
 import { SkeletonComponent } from "./problem/skeleton.component";
+import { Solution3Component } from "./solution3/solution3.component";
 
 export const AREAS_ROUTES: Routes = [
 	{ path: "", component: HomeComponent, pathMatch: "full" },
@@ -21,6 +22,7 @@ export const AREAS_ROUTES: Routes = [
 	{ path: "solution2/theodora", component: Solution2Theodora },
 	{ path: "solution2/olga", component: Solution2Olga },
 	{ path: "solution2/billie", component: Solution2Billie },
+	{ path: "solution3", component: Solution3Component },
 	{ path: "error", component: ErrorComponent },
 	{ path: "**", component: NotFoundComponent },
 ];

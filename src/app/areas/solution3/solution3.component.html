@@ -1,0 +1,70 @@
+<div class="nav">
+		<a (click)="changePerson(Person.THEODORA)">Theodora</a>
+		<a (click)="changePerson(Person.OLGA)">Olga</a>
+		<a (click)="changePerson(Person.BILLIE)">Billie</a>
+		<a (click)="toggleWarning()" [class.warning]="showWarning()">Warning</a>
+</div>
+<div class="frame">
+	<div>
+		<div class="header">{{ activePerson() }}</div>
+		<div class="list">
+			<ng-container [ngSwitch]="activePerson()">
+          <ng-container *ngSwitchCase="Person.BILLIE">
+            <ng-container
+              [ngTemplateOutlet]="billieList"
+              [ngTemplateOutletContext]="{ contextData: 'Hello Billie from context!' }"
+            ></ng-container>
+          </ng-container>
+					<ng-container *ngSwitchCase="Person.THEODORA">
+            <ng-container
+              [ngTemplateOutlet]="theodoraList"
+              [ngTemplateOutletContext]="{ contextData: 'Hello Theodora from context!' }"
+            ></ng-container>
+          </ng-container>
+					<ng-container *ngSwitchCase="Person.OLGA">
+            <ng-container
+              [ngTemplateOutlet]="olgaList"
+              [ngTemplateOutletContext]="{ contextData: 'Hello Olga from context!' }"
+            ></ng-container>
+          </ng-container>
+				</ng-container>
+		</div>
+	</div>
+	<div class="other">
+		<a class="item">link for everyone</a>
+		@if (activePerson() === Person.BILLIE) {
+			<a class="item">extra link for billie</a>
+		}
+	</div>
+
+        
+
+	<!-- ng templates for list -->
+	<ng-template #billieList let-msg="contextData">
+		<div class="item">Stuff together</div>
+		<div class="item">Olga and Billie together</div>
+		<div class="item">Billies stuff</div>
+		@if(showWarning()){
+			<div class="warning">Warning! for Billie</div>
+		}
+		<div class="item">{{ msg }}</div>
+	</ng-template>
+	<ng-template #theodoraList let-msg="contextData">
+			<div class="item">Theodoras stuff</div>
+			@if(showWarning()){
+				<div class="warning">Warning! for Olga and Theodora</div>
+			}
+			<div class="item">Stuff together</div>
+			<div class="item">Theodoras stuff that should come after stuff together</div>
+			<div class="item">{{ msg }}</div>
+	</ng-template>
+	<ng-template #olgaList let-msg="contextData">
+			@if(showWarning()){
+				<div class="warning">Warning! for Olga and Theodora</div>
+			}
+			<div class="item">Olgas stuff</div>
+			<div class="item">Stuff together</div>
+			<div class="item">Olga and Billie together</div>
+			<div class="item">{{ msg }}</div>
+	</ng-template>
+</div>

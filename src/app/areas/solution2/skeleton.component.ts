@@ -7,6 +7,7 @@ import { Component, signal } from "@angular/core";
  *
  *  - Still need new components for the content + skeleton/container
  *  - Couldn't get showWarning signal to work in the person components
+ *  - Functions and variables needs to be public for content components to access
  *  + Using the same functions
  *  + Easy to read HTML
  *  + Easy to add new person
@@ -22,7 +23,7 @@ import { Component, signal } from "@angular/core";
 })
 export class SkeletonComponent {
 
-	protected readonly showWarning = signal<boolean>(false);
+	readonly showWarning = signal<boolean>(false);
 
 	protected toggleWarning(): void {
 		console.log("toggle warning")

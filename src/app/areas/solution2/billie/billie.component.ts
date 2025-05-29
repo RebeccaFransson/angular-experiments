@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { AfterViewInit, Component, signal, ViewChild } from "@angular/core";
 import { SkeletonComponent } from "../skeleton.component";
 
 /**
@@ -7,7 +7,8 @@ import { SkeletonComponent } from "../skeleton.component";
  * that they all extend from to access functions that they all have in common
  *
  *  - Still need new components for the content + skeleton/container
- *  - Couldn't get showWarning signal to work in the person components
+ *  - Annoying way to access skeletons variables
+ *  - Cant get parents scss to import
  *  + Using the same functions
  *  + Easy to read HTML
  *  + Easy to add new person
@@ -16,10 +17,18 @@ import { SkeletonComponent } from "../skeleton.component";
 @Component({
 	selector: "app-billie",
 	templateUrl: "./billie.component.html",
-	styleUrls: ["../skeleton.component.scss"],
+	styleUrls: ["./billie.component.scss"],
 	imports: [SkeletonComponent],
 	standalone: true
 })
-export class BillieComponent extends SkeletonComponent {
+export class BillieComponent implements AfterViewInit {
+
+	@ViewChild("skeleton") skeletonComponent!: SkeletonComponent;
+
+	protected showWarningInContent = signal<boolean>(false);
+
+	ngAfterViewInit(){
+		this.showWarningInContent = this.skeletonComponent.showWarning;
+	}
 
 }

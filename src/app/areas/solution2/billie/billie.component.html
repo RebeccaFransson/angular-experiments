@@ -1,11 +1,11 @@
-<app-skeleton>
+<app-skeleton #skeleton>
 	<div ngProjectAs="skeleton-header">Billie</div>
 	<div ngProjectAs="skeleton-list">
 		<div class="item">Stuff together</div>
 		<div class="item">Olga and Billie together</div>
 		
 		<div class="item">Billies stuff</div>
-		@if(showWarning()){
+		@if(showWarningInContent()){
 			<div class="warning">Warning! for Billie</div>
 		}
 	</div>

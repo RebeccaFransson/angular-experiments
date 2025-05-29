@@ -1,15 +1,78 @@
 <h1>
 	{{title}}
 </h1>
-<p>Angular 14.x <a href="https://github.com/sketch7/angular-skeleton-app">navigation skeleton project</a> with styling which get you started faster.</p>
 <ul>
-	<li>Angular CLI 14.x template</li>
-	<li>SCSS for styling</li>
-	<li>Bootstrap 4.x and font awesome</li>
-	<li>Navigation/layout</li>
-	<li>Theming</li>
-</ul>
+	<li><a href="/problem">Problem</a></li>
+	<ul>
+		<li>One component and one template that renders all the person specific layouts</li>
+		<li>A lot of if-statements throughout the template making it hard to read</li>
+		<li>Pros</li>
+		<ul>
+			<li>Nothing needs to change</li>
+			<li>One component that has all the shared functions</li>
+		</ul>
+		<li>Cons</li>
+		<ul>
+			<li>All the if-statements making if hard to read and even harder to understand how the design looks like by just looking at the template</li>
+			<li>One component that has some functions that are not used for all persons</li>
+			<li>Easy to change design/layout for the wrong person</li>
+		</ul>
+	</ul>
 
-<p>
-	See other <a routerLink="/projects">open source projects</a> developed.
-</p>
+	<li><a href="/solution1/theodora">Solution 1 - split up into separate components</a></li>
+	<ul>
+		<li>One component + template for each person</li>
+		<li>Extends a base component for shared functions</li>
+		<li>Pros</li>
+		<ul>
+			<li>Having a base component that can have shared functions</li>
+			<li>Easy to read template since every template is just for that person</li>
+			<li>Easy to add a new person - just create a new comp</li>
+			<li>Hard to accidentally change a persons layout when you don't mean to</li>
+		</ul>
+		<li>Cons</li>
+		<ul>
+			<li>A LOT of repeating html in the templates</li>
+			<li>Two new file for every new person</li>
+		</ul>
+	</ul>
+
+	<li><a href="/solution2/theodora">Solution 2 - ng-content with parent and child comps</a></li>
+	<ul>
+		<li>One component + template for each person</li>
+		<li>Extends a base component for shared functions and common layout/design</li>
+		<li>Pros</li>
+		<ul>
+			<li>Having a base component that can have shared functions</li>
+			<li>Pretty easy to read template since the templates only contains the unique layout to that person</li>
+			<li>Easy to add a new person - just create a new comp</li>
+			<li>Hard to accidentally change a persons layout when you don't mean to</li>
+			<li>More DRY than solution 1</li>
+			<li>ng-content is used in it's intended way here, to create a child comp that only contains template layout specific to that comp, and letting the parent comp have the layout that is shared between persons</li>
+		</ul>
+		<li>Cons</li>
+		<ul>
+			<li>Will require more work to be rewritten to this way</li>
+			<li>A lot of components - which is both a pro+con</li>
+			<li>Couldn't get showWarning signal to work in the person components</li>
+		</ul>
+	</ul>
+	<li><a href="/solution3">Solution 3 - ng-template</a></li>
+	<ul>
+		<li>One component and one template (just like the problem)</li>
+		<li>But we use ng-templates (furthest down in the .html file) to conditionally render specific person layouts</li>
+		<li>Pros</li>
+		<ul>
+			<li>Will require less work to be rewritten to this way</li>
+			<li>One component that has the shared functions</li>
+			<li>Pretty to read HTML since we put the ng-templates at the bottom</li>
+			<li>Easy to add a new person - just create a new ng-template</li>
+			<li>Hard to accidentally change a persons layout when you don't mean to</li>
+		</ul>
+		<li>Cons</li>
+		<ul>
+			<li>Everything in one component - makes the template feel messy</li>
+			<li>ng-template isn't really used in it's intended way here, since it's not repeating a specific layout across the component - every ng-template only contains unique layout for that specific person</li>
+		</ul>
+	</ul>
+</ul>

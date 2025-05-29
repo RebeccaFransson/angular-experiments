@@ -5,7 +5,7 @@ import { Injectable, isDevMode } from "@angular/core";
 })
 export class AppInfoService {
 
-	title = "Angular Skeleton App";
+	title = "Angular Template Experiments";
 	version = "1.0.0";
 	environment = isDevMode() ? "prod" : "dev";
 	isDebug = isDevMode();

@@ -11,8 +11,8 @@ enum Person {
  * Solution 3: ng-template
  * One page again, using ng-template to conditionally render the right elements
  *
- *  + No new components needed
  *  - Everything is one file - can get messy
+ *  + No new components needed
  *  + Easy to read HTML since we put the ng-templates at the bottom
  *  + Using the same functions
  *  + Easy to add new person
